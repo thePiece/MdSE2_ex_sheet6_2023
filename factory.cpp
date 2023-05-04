@@ -1,6 +1,8 @@
 #include "factory.h"
 
-#include<unistd.h>
+#include<unistd.h> // For Sleep
+#include <ctime> // For Srand
+#include <memory>
 
 Factory::Factory(){
     // TODO
@@ -10,8 +12,16 @@ Factory::~Factory(){
     // ToDo
 }
 
-void Factory::run(unsigned i){
+void Factory::addProduct(std::shared_ptr<Product> p){
+    Products.push_back(p);
+}
+
+
+void Factory::run(const unsigned i){
     unsigned c = 0;
+
+    // Maschinen erstellen
+
 
 
     while(c < i || i == 0){
@@ -19,8 +29,25 @@ void Factory::run(unsigned i){
             c++;
         }
 
-        std::cout << "TEST: " << c << std::endl;
 
+            
+        // Maschine 1 Produziert tick
+        
+        // Fehler auslassen mit Counter und If
+        
+        // Explosion kaputt und entfernen
+
+
+        
+        // Maschine 1 Produziert tick
+        
+        // Fehler auslassen mit Counter und If
+        
+        // Explosion kaputt und entfernen
+
+
+
+        std::cout << "Durchlauf: " << c << std::endl;
         sleep(2);
     }
 

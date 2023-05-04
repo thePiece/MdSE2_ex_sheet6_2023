@@ -2,7 +2,7 @@
 # Name of the binary
 BINARY = factory
 # Object files
-OBJS   = factory.o machine.o machineA.o machineB.o main.o product.o
+OBJS   = factory.o machine.o main.o product.o
 # Compiler flags
 CFLAGS = -g -Werror -Wall
 # Linker flags

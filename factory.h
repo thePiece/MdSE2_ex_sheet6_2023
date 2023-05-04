@@ -2,11 +2,16 @@
 #define FACTORY_H_
 
 #include<iostream>
+#include<vector>
+
+#include "product.h"
 
 class Factory{
     private:
 
     protected:
+    std::vector<std::shared_ptr<Product>> Products;
+
 
     public:
     Factory();
@@ -20,7 +25,7 @@ class Factory{
     
     // void deleteMachine(unsigned id);
 
-    // void addProduct(Product* p); // Übergibt ein Produk an die Factory
+    void addProduct(std::shared_ptr<Product> p); // Übergibt ein Produk an die Factory
 
     // unsigned getProductACount(); // Gibt die Anzahl der im Lager vorhandenen Produkte zurück
 

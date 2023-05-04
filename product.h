@@ -7,30 +7,30 @@ class Product {
     protected:
 
     public:
-    virtual int getType() = 0;
+    virtual int getType();
 
 };
 
 
 class Product1 : protected Product {
     private:
-
+    int type = 1;
     protected:
 
     public:
     virtual int getType() override
-    {return 1;};
+    {return type;};
 };
 
 
 class Product1 : protected Product {
     private:
-
+    int type = 2;
     protected:
 
     public:
     virtual int getType() override
-    {return 2;};
+    {return type;};
 };
 
 #endif /* PRODUCT_H_ */
