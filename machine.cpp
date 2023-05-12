@@ -1,29 +1,29 @@
 #include "machine.h"
 
-#include<iostream>
-#include <ctime>
 
+// Machine Base Class
 
-void MachineA::tick(){
-    
-
-    if(((rand()%100)+1) > 15){
-        if(((rand()%100)+1) > 2){
-            setFactory()
-
-
-            // factory->addProduct();
-        }else{
-            // throw Explosion exception
-        }
-    }else{
-        // throw exception failure
-    }
-    
-    // (rand()%100)+1 << std::endl;
+void Machine::setFactory(Factory* f){
+	this->factory = f;
 }
 
+// Machine A subclass
+
+MachineA::~MachineA(){
+    std::cout << "MachineA destroyed!" << std::endl;
+}
+
+void MachineA::tick(){
+     std::cout << "asdasdadsadsasd AAAAA" << std::endl;
+}
+
+// Machine B subclass
 
 void MachineB::tick(){
-    // std::cout << "Testrandom: " << (rand()%100)+1 << std::endl;
+    // Make Product
+    std::cout << "asdasdadsadsasd BBBB" << std::endl;
+}
+
+MachineB::~MachineB(){
+    std::cout << "MachineA destroyed!" << std::endl;
 }

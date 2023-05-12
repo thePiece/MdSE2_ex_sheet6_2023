@@ -1,55 +1,74 @@
+
 #include "factory.h"
 
-#include<unistd.h> // For Sleep
-#include <ctime> // For Srand
-#include <memory>
+#include <unistd.h>
 
-Factory::Factory(){
-    // TODO
+Factory::Factory(){};
+
+Factory::~Factory(){};
+
+
+unsigned Factory::addMachine(Machine* m){
+    unsigned id = machineID++;
+    machines.insert({id, std::shared_ptr<Machine>(m)});
+    m->setFactory(this);
+    return id;
 }
 
-Factory::~Factory(){
-    // ToDo
+std::shared_ptr<Machine> Factory::getMachine(unsigned id){
+    std::shared_ptr<Machine> ma;
+    for (auto m : machines){
+        if(m.first == id){
+            ma = m.second;
+            break;
+        }
+    }
+    return ma;
 }
 
-void Factory::addProduct(std::shared_ptr<Product> p){
-    Products.push_back(p);
+void Factory::deleteMachine(unsigned id){
+
 }
 
 
-void Factory::run(const unsigned i){
+void Factory::addProduct(Product* p){
+    
+}
+
+unsigned Factory::getProductACount(){
+    return 0;
+}
+
+unsigned Factory::getProductBCount(){
+    return 0;
+}
+
+void Factory::run(unsigned it){
     unsigned c = 0;
-
-    // Maschinen erstellen
-
-
-
-    while(c < i || i == 0){
-        if(i != 0){
+    while(c < it || it == 0){
+        if (it != 0){
             c++;
         }
-
-
-            
-        // Maschine 1 Produziert tick
-        
-        // Fehler auslassen mit Counter und If
-        
-        // Explosion kaputt und entfernen
-
-
-        
-        // Maschine 1 Produziert tick
-        
-        // Fehler auslassen mit Counter und If
-        
-        // Explosion kaputt und entfernen
-
-
-
         std::cout << "Durchlauf: " << c << std::endl;
-        sleep(2);
-    }
 
-    std::cout << "Produktion beendet!"<< std::endl;
+        // Für Machine in MAP
+        for (auto machine : machines){
+            // std::cout << machine.first << std::endl;
+            // std::shared_ptr<Machine> m = machine.second;
+            machine.second->tick();
+        }
+
+        sleep(3);
+    }
 }
+
+// ToDo
+/*
+
+Random zeiten + erstellen der Priducte und Speichern der Producte
+
+Ausfall Try Catch
+
+Mehr Ausgaben
+
+*/

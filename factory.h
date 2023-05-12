@@ -1,37 +1,39 @@
 #ifndef FACTORY_H_
 #define FACTORY_H_
 
-#include<iostream>
-#include<vector>
+#include <memory>
+#include <map>
+#include <vector>
 
+#include "machine.h"
 #include "product.h"
 
+class Machine;
 class Factory{
     private:
+    std::map<unsigned, std::shared_ptr<Machine>> machines;
+    std::vector<Product> produts;
+    unsigned machineID = 0;
 
     protected:
-    std::vector<std::shared_ptr<Product>> Products;
-
 
     public:
     Factory();
     ~Factory();
 
-    void run(unsigned iterations); // Implementiert Zeitschleife (0 = unendlich) oder Zahl
+    unsigned addMachine(Machine* m);
+    std::shared_ptr<Machine> getMachine(unsigned id);
+    void deleteMachine(unsigned id);
 
-    // unsigned addMachine(Machine* m);
 
-    // Machine* getMachine(unsigned id);
-    
-    // void deleteMachine(unsigned id);
+    void addProduct(Product* p);
+    unsigned getProductACount();
+    unsigned getProductBCount();
 
-    void addProduct(std::shared_ptr<Product> p); // Übergibt ein Produk an die Factory
+    void run(unsigned iterations);
 
-    // unsigned getProductACount(); // Gibt die Anzahl der im Lager vorhandenen Produkte zurück
 
-    // unsigned getProductBCount();
-
-    
 };
 
-#endif /* FACTORY_H_ */
+
+#endif /*FACTORY_H_*/

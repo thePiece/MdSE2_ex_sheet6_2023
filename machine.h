@@ -1,45 +1,49 @@
 #ifndef MACHINE_H_
 #define MACHINE_H_
 
+#include "factory.h"
+#include<iostream>
+
 class Factory;
-class Machine{
+
+class Machine {
     private:
 
     protected:
     Factory* factory = nullptr;
 
     public:
-    virtual void tick();// Simuliert Produkte produzieren
-    
-    void setFactory(Factory* f){
-        this->factory = f;
-    };
+
+    virtual void tick() = 0;
+
+    void setFactory(Factory* f);
+
 };
 
-class MachineA : protected Machine{
+
+class MachineA : public Machine{
     private:
 
     protected:
 
     public:
-    MachineA();
     ~MachineA();
-
     virtual void tick() override;
 
 };
 
-
-class MachineB : protected Machine {
+class MachineB : public Machine{
     private:
 
     protected:
 
     public:
-    MachineB();
+    
     ~MachineB();
 
     virtual void tick() override;
+
 };
 
-#endif /* MACHINE_H_ */
+
+#endif /*MACHINE_H_*/

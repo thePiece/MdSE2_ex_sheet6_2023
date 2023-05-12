@@ -1,13 +1,21 @@
 #include<iostream>
 #include <ctime>
-#include"factory.h"
+#include <memory>
+#include "machine.h"
+#include "factory.h"
 
+class MachineA;
+class MachineB;
 
 int main(){
     std::srand(std::time(NULL));
 
-    Factory f;
-    f.run(0);
+    Factory factory;
+
+    factory.addMachine(new MachineA());
+    factory.addMachine(new MachineB());
+
+    factory.run(5);
 
     return 0;
 }

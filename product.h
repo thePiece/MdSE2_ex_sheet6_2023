@@ -1,36 +1,34 @@
 #ifndef PRODUCT_H_
 #define PRODUCT_H_
 
-class Product {
+class Product{
     private:
 
     protected:
 
     public:
-    virtual int getType();
+    virtual int getType() = 0;
 
 };
 
-
-class Product1 : protected Product {
+class ProductA : public Product {
     private:
-    int type = 1;
+
     protected:
 
     public:
-    virtual int getType() override
-    {return type;};
+    virtual int getType() override;
+
 };
 
 
-class Product1 : protected Product {
+class ProductB : public Product{
     private:
-    int type = 2;
+
     protected:
 
     public:
-    virtual int getType() override
-    {return type;};
+    virtual int getType() override;
 };
 
-#endif /* PRODUCT_H_ */
+#endif /*PRODUCT_H_*/
