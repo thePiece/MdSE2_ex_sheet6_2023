@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/chris/Dokumente/MdSE2_ex_sheet6_2023'
+g++ -c -g -Werror -Wall -o factory.o factory.cpp
+g++ -c -g -Werror -Wall -o machine.o machine.cpp
+g++ -c -g -Werror -Wall -o main.o main.cpp
+g++ -c -g -Werror -Wall -o product.o product.cpp
+g++ -g -o factory factory.o machine.o main.o product.o
+make: Leaving directory '/home/chris/Dokumente/MdSE2_ex_sheet6_2023'
+ 

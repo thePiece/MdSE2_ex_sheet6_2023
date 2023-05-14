@@ -12,7 +12,7 @@ class Machine;
 class Factory{
     private:
     std::map<unsigned, std::shared_ptr<Machine>> machines;
-    std::vector<Product> produts;
+    std::vector<Product*> products;
     unsigned machineID = 0;
 
     protected:
@@ -22,7 +22,7 @@ class Factory{
     ~Factory();
 
     unsigned addMachine(Machine* m);
-    std::shared_ptr<Machine> getMachine(unsigned id);
+    Machine* getMachine(unsigned id);
     void deleteMachine(unsigned id);
 
 
@@ -31,8 +31,6 @@ class Factory{
     unsigned getProductBCount();
 
     void run(unsigned iterations);
-
-
 };
 
 

@@ -15,7 +15,7 @@ int main(){
     factory.addMachine(new MachineA());
     factory.addMachine(new MachineB());
 
-    factory.run(5);
+    factory.run(0);
 
     return 0;
 }
